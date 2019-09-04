@@ -1,5 +1,5 @@
 import random
-
+letters_guessed = []
 def load_word():
     '''
     A function that reads a text file of words and randomly selects one to use as the secret word
@@ -27,6 +27,11 @@ def is_word_guessed(secret_word, letters_guessed):
     '''
     # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
     pass
+    word = []
+    for letter in secret_word:
+        if letter in letters_guessed:
+            word.append(letter)
+    return secret_word == word
 
 def get_guessed_word(secret_word, letters_guessed):
     '''
