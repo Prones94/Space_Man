@@ -93,6 +93,9 @@ def spaceman(secret_word):
             print(get_guessed_word(secret_word,letters_guessed))
             guesses -= 1
             print(f'You have {guesses} remaining. You got this!')
+        
+        elif(len(user_guess) > 1):
+            print('Not a valid input, please try again')
 
     #TODO: Check if the guessed letter is in the secret or not and give the player feedback
         is_guess_in_word(user_guess, secret_word)
