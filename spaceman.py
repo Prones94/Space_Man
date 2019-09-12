@@ -1,6 +1,7 @@
 import random
 letters_guessed = []
 
+
 def load_word():
     '''
     A function that reads a text file of words and randomly selects one to use as the secret word
@@ -88,15 +89,15 @@ def spaceman(secret_word):
         if (is_guess_in_word(secret_word,letters_guessed)):
             print(f'{user_guess} was found! Nice job!')
             print(get_guessed_word(secret_word,letters_guessed))
+        
+        if len(user_guess) > 1 or len(user_guess) == 0:
+            print('Not a valid input, please try again')
 
         if guesses != 0:
             print(get_guessed_word(secret_word,letters_guessed))
             guesses -= 1
             print(f'You have {guesses} remaining. You got this!')
         
-        elif(len(user_guess) > 1):
-            print('Not a valid input, please try again')
-
     #TODO: Check if the guessed letter is in the secret or not and give the player feedback
         is_guess_in_word(user_guess, secret_word)
 
