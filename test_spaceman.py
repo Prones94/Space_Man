@@ -22,8 +22,8 @@ class SpaceManTest(unittest.TestCase):
             True if letters are in secret word
         """
         secret_word = ['pillow']
-        letters_guessed['p','i','l','l','o','w']
-        self.assertEqual(is_word_guessed(secret_word,letters_guessed)True)
+        letters_guessed = ['p','i','l','l','o','w']
+        self.assertEqual(is_word_guessed(secret_word,letters_guessed),False)
     
     def test_get_guessed_word(self):
         """
@@ -35,6 +35,6 @@ class SpaceManTest(unittest.TestCase):
                 True if the entire word is guessed correctly 
         """
         secret_word = ['tacos']
-        letters_guessed['t','a','c','o','s']
-        self.assertEqual(get_guessed_word(secret_word,letters_guessed),True)
+        letters_guessed = ['t','a','c','o','s']
+        self.assertEqual(get_guessed_word(secret_word,letters_guessed),'_')
 

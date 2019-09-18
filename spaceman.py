@@ -118,5 +118,7 @@ def spaceman(secret_word):
     #TODO: check if the game has been won or lost
 
 #These function calls that will start the game
-secret_word = load_word()
-spaceman(secret_word)
+
+if __name__ == '__main__':
+    secret_word = load_word()
+    spaceman(secret_word)
