@@ -64,9 +64,11 @@ def is_guess_in_word(guess, secret_word):
         bool: True if the guess is in the secret_word, False otherwise
     '''
     #TODO: check if the letter guess is in the secret word
-    secret_word = list(secret_word)
+    for letter in secret_word:
+        if letter == guess:
+            return True
+    return False
 
-    return guess in secret_word
 
 def spaceman(secret_word):
     '''
@@ -82,22 +84,29 @@ def spaceman(secret_word):
         if guesses == 0:
             print(f'You lost.The secret word was {secret_word}')
             break
-
+        print(f'You have {guesses} tries to find the right answer.')
         user_guess = input('Enter one letter only: ')
         letters_guessed.append(user_guess)
 
-        if (is_guess_in_word(secret_word,letters_guessed)):
+        if len(user_guess) > 1:
+            print('Nice try, one letter only please: ')
+            continue
+        if user_guess.isalpha() == False:
+            print('Nice try, try a single letter this time: ')
+            continue
+
+        if is_guess_in_word(user_guess,secret_word):
             print(f'{user_guess} was found! Nice job!')
             print(get_guessed_word(secret_word,letters_guessed))
-        
-        if len(user_guess) > 1 or len(user_guess) == 0:
-            print('Not a valid input, please try again')
-
-        if guesses != 0:
-            print(get_guessed_word(secret_word,letters_guessed))
+        elif not is_guess_in_word(secret_word,letters_guessed):
+            print(f'You chose {user_guess}. Sorry that was not correct.')
             guesses -= 1
+            print(f'You have {guesses} remaining.')
+            print(get_guessed_word(secret_word,letters_guessed))
+        else:
+            print(f'You guessed {user_guess}.')
+            print(get_guessed_word(secret_word,letters_guessed))
             print(f'You have {guesses} remaining. You got this!')
-        
     #TODO: Check if the guessed letter is in the secret or not and give the player feedback
         is_guess_in_word(user_guess, secret_word)
 
